@@ -8,7 +8,7 @@ function clickEventimg() {
     ed.style.height = "300px";
     ed.style.width = "99px";
     setTimeout(clickEventimgup,20)
-    parinaamt = 1 * lipitysamt;
+    parinaamt = parinaamt + 1 * lipitysamt;
     parinatxt.textContent = "Pärinä: " + parinaamt;
 }
 function lipitysosto() {
