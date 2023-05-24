@@ -18,7 +18,7 @@ function lipitysosto() {
         parinaamt = parinaamt - lipitysmaksu;
         lipitysmaksu = lipitysmaksu * 2;
         lipitysamt += 1;
-        lippitekst.textContent = "Päivitä lipitys taitoja <br> Maksaa: " + lipitysmaksu;
+        lippitekst.textContent = "Päivitä lipitys taitoja" + "<br>" +  "Maksaa: " + lipitysmaksu;
     }
 }
 function clickEventimgup() {
