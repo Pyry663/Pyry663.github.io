@@ -2,6 +2,8 @@
 var parinaamt = 0;
 var lipitysmaksu = 10;
 var lipitysamt = 1;
+var lippitekst = document.getElementById("maksu")
+lippitekst.textContent = "Päivitä lipitys taitoja <br> Maksaa: " + lipitysmaksu;
 function clickEventimg() {
     var ed = document.getElementById("ED");
     var parinatxt = document.getElementById("parina");
@@ -16,7 +18,7 @@ function lipitysosto() {
         parinaamt = parinaamt - lipitysmaksu;
         lipitysmaksu = lipitysmaksu * 2;
         lipitysamt += 1;
-        document.getElementById("maksu").textContent = "Päivitä lipitys taitoja <br> Maksaa: " + lipitysmaksu;
+        lippitekst.textContent = "Päivitä lipitys taitoja <br> Maksaa: " + lipitysmaksu;
     }
 }
 function clickEventimgup() {
