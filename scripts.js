@@ -1,5 +1,5 @@
 /* Place your JavaScript in this file */
-const listofdata = [paramt,lipamt,eti,lipco,infco,infmul]
+const listofdata = ["paramt","lipamt","eti","lipco","infco","infmul"];
 for (let i in listofdata) {
     if (localStorage.getItem(i) == null) {
         parinaamt = 0;
@@ -10,22 +10,22 @@ for (let i in listofdata) {
         edtier = 1;
     }
     else {
-        if (i = paramt) {
+        if (i = "paramt") {
             parinaamt = localStorage.getItem(i);
         }
-        if (i = lipamt) {
+        if (i = "lipamt") {
             lipitysamt = localStorage.getItem(i);
         }
-        if (i = lipco) {
+        if (i = "lipco") {
             lipitysmaksu = localStorage.getItem(i);
         }
-        if (i = eti) {
+        if (i = "eti") {
             edtier = localStorage.getItem(i);
         }
-        if (i = infinityCost) {
+        if (i = "infinityCost") {
             infco = localStorage.getItem(i);
         }
-        if (i = infinityMulti) {
+        if (i = "infinityMulti") {
             infmul = localStorage.getItem(i);
         }
     }
