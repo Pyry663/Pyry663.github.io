@@ -1,7 +1,7 @@
 /* Place your JavaScript in this file */
 const listofdata = ["paramt","lipamt","eti","lipco","infco","infmul"];
 for (let i in listofdata) {
-    if (localStorage.getItem(i) == null) {
+    if (localStorage.getItem.i) {
         parinaamt = 0;
         lipitysamt = 1;
         lipitysmaksu = 10;
@@ -10,23 +10,23 @@ for (let i in listofdata) {
         edtier = 1;
     }
     else {
-        if (i = "paramt") {
-            parinaamt = localStorage.getItem(i);
+        if (i = paramt) {
+            parinaamt = localStorage.getItem.i;
         }
-        if (i = "lipamt") {
-            lipitysamt = localStorage.getItem(i);
+        if (i = lipamt) {
+            lipitysamt = localStorage.getItem.i;
         }
-        if (i = "lipco") {
-            lipitysmaksu = localStorage.getItem(i);
+        if (i = lipco) {
+            lipitysmaksu = localStorage.getItem.i;
         }
-        if (i = "eti") {
-            edtier = localStorage.getItem(i);
+        if (i = eti) {
+            edtier = localStorage.getItem.i;
         }
-        if (i = "infinityCost") {
-            infco = localStorage.getItem(i);
+        if (i = infinityCost) {
+            infco = localStorage.getItem.i;
         }
-        if (i = "infinityMulti") {
-            infmul = localStorage.getItem(i);
+        if (i = infinityMulti) {
+            infmul = localStorage.getItem.i;
         }
     }
 } 
