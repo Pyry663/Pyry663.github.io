@@ -30,7 +30,6 @@ for (let i in listofdata) {
         }
     }
 } 
-var savinggg = document.getElementById("saveign");
 var lippitekst = document.getElementById("maksu");
 var ed = document.getElementById("ED");
 var parinatxt = document.getElementById("parina");
@@ -62,11 +61,9 @@ function infinityED() {
     }
 }
 function sav() {
-    savinggg.textContent = "";
     setTimeout(savegame,8000);
 }
 function savegame() {
-    savinggg.textContent = "saving";
     localStorage.setItem(paramt, parinaamt);
     localStorage.setItem(lipamt, lipitysamt);
     localStorage.setItem(eti, edtier);
