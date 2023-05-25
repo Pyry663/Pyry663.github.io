@@ -1,35 +1,10 @@
 /* Place your JavaScript in this file */
-const listofdata = ["paramt","lipamt","eti","lipco","infco","infmul"];
-for (let i in listofdata) {
-    if (localStorage.getItem.i) {
-        parinaamt = 0;
-        lipitysamt = 1;
-        lipitysmaksu = 10;
-        infinityCost = 10000;
-        infinityMulti = 1;
-        edtier = 1;
-    }
-    else {
-        if (i = paramt) {
-            parinaamt = localStorage.getItem.i;
-        }
-        if (i = lipamt) {
-            lipitysamt = localStorage.getItem.i;
-        }
-        if (i = lipco) {
-            lipitysmaksu = localStorage.getItem.i;
-        }
-        if (i = eti) {
-            edtier = localStorage.getItem.i;
-        }
-        if (i = infinityCost) {
-            infco = localStorage.getItem.i;
-        }
-        if (i = infinityMulti) {
-            infmul = localStorage.getItem.i;
-        }
-    }
-} 
+parinaamt = 0;
+lipitysamt = 1;
+lipitysmaksu = 10;
+infinityCost = 10000;
+infinityMulti = 1;
+edtier = 1;
 var lippitekst = document.getElementById("maksu");
 var ed = document.getElementById("ED");
 var parinatxt = document.getElementById("parina");
