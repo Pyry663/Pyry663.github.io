@@ -5,13 +5,14 @@ var edtier = localStorage.getItem("eti");
 var lipitysmaksu = localStorage.getItem("lipco");
 var infinityCost = localStorage.getItem("infco");
 var infinityMulti = localStorage.getItem("infmul");
+
 function RESET() {
-    var parinaamt = 0;
-    var lipitysamt = 1;
-    var edtier = 1;
-    var lipitysmaksu = 10;
-    var infinityCost = 10000;
-    var infinityMulti = 1;
+    parinaamt = 0;
+    lipitysamt = 1;
+    edtier = 1;
+    lipitysmaksu = 10;
+    infinityCost = 10000;
+    infinityMulti = 1;
     localStorage.setItem("paramt", parinaamt);
     localStorage.setItem("lipamt", lipitysamt);
     localStorage.setItem("eti", edtier);
