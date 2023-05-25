@@ -14,11 +14,14 @@
     <body onload="loadin()">
     <div class="tab">
         <button id="edtabbutton"class="tablinks" onclick="openTab(event, 'EDTab')">ED</button>
-        <button id="Infinitytab"class="tablinks" onclick="openTab(event, 'Infinitytab')">Infinity</button>
+        <button id="Infinitytabb"class="tablinks" onclick="openTab(event, 'Infinitytab')">Infinity</button>
         <button id=""class="tablinks" onclick="openTab(event, 'ComingSoon')">Coming Soon...</button>
     </div>
+    <h1 id="IP">InfinityPoints:</h1>
+    <h1 id="parina">Pärinä:</h1>
+    
     <div id="EDTab" class="tabcontent">
-        <h1 id="parina">Pärinä:</h1>
+        
         <p id="ppe"> sus</p>
         <div onclick="lipitysosto()" class="container">
             <img id="lipitys" src="lipitystys.png">
@@ -36,10 +39,15 @@
                 <p>aloita uusi loputtomuus <br> Maksaa: </p>
             </div>
         </div>
+    </div>
         <button id="reset" onclick="RESET()">RESET!!!</button>
         <!-- Load external JavaScript -->
         <script src="scripts.js"></script>
+    <div id="Infinitytab" class="tabcontent">
+        <button id="InfinityUP1" class="infinityupgrades" onclick="purhaceinfupgrade(event, 'InfinityUP1', 5)">Lisää Multiplieri Ediin joka on yhtäkuin sinun Loputtomat Pärinät Maksaa: 5 LP </button>
+        <button id="InfinityUP2" class="infinityupgrades" onclick="purhaceinfupgrade(event, 'InfinityUP2', 1000)">Päivitä ED Maksaa: 1000 LP</button>
     </div>
+    
     </body>
 
 </html>
