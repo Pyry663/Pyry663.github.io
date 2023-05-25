@@ -12,6 +12,13 @@ function RESET() {
     var lipitysmaksu = 10;
     var infinityCost = 10000;
     var infinityMulti = 1;
+    localStorage.setItem("paramt", parinaamt);
+    localStorage.setItem("lipamt", lipitysamt);
+    localStorage.setItem("eti", edtier);
+    localStorage.setItem("lipco", lipitysmaksu);
+    localStorage.setItem("infco", infinityCost);
+    localStorage.setItem("infmul", infinityMulti);
+    
 }
 
 
