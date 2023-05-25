@@ -1,9 +1,3 @@
-var parinaamt = 0;
-var lipitysamt = 1;
-var edtier = 1;
-var lipitysmaksu = 10;
-var infinityCost = 10000;
-var infinityMulti = 1;
 
 var parinaamt = localStorage.getItem("paramt");
 var lipitysamt = localStorage.getItem("lipamt");
@@ -11,6 +5,14 @@ var edtier = localStorage.getItem("eti");
 var lipitysmaksu = localStorage.getItem("lipco");
 var infinityCost = localStorage.getItem("infco");
 var infinityMulti = localStorage.getItem("infmul");
+if (parinaamt = null) {
+    var parinaamt = 0;
+    var lipitysamt = 1;
+    var edtier = 1;
+    var lipitysmaksu = 10;
+    var infinityCost = 10000;
+    var infinityMulti = 1;
+}
 
 
 var lippitekst = document.getElementById("maksu");
