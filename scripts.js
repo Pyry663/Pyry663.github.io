@@ -101,7 +101,6 @@ function lipitysosto() {
     }
 }
 function clickEventimgup() {
-    var ed = document.getElementById("ED");
     ed.style.height = "400px";
     ed.style.width = "132px";
 }
