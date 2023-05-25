@@ -1,10 +1,18 @@
-/* Place your JavaScript in this file */
-parinaamt = 0;
-lipitysamt = 1;
-lipitysmaksu = 10;
-infinityCost = 10000;
-infinityMulti = 1;
-edtier = 1;
+var parinaamt = 0;
+var lipitysamt = 1;
+var edtier = 1;
+var lipitysmaksu = 10;
+var infinityCost = 10000;
+var infinityMulti = 1;
+
+var parinaamt = localStorage.getItem("paramt");
+var lipitysamt = localStorage.getItem("lipamt");
+var edtier = localStorage.getItem("eti");
+var lipitysmaksu = localStorage.getItem("lipco");
+var infinityCost = localStorage.getItem("infco");
+var infinityMulti = localStorage.getItem("infmul");
+
+
 var lippitekst = document.getElementById("maksu");
 var ed = document.getElementById("ED");
 var parinatxt = document.getElementById("parina");
@@ -39,12 +47,12 @@ function sav() {
     setTimeout(savegame,8000);
 }
 function savegame() {
-    localStorage.setItem(paramt, parinaamt);
-    localStorage.setItem(lipamt, lipitysamt);
-    localStorage.setItem(eti, edtier);
-    localStorage.setItem(lipco, lipitysmaksu);
-    localStorage.setItem(infco, infinityCost);
-    localStorage.setItem(infmul, infinityMulti);
+    localStorage.setItem("paramt", parinaamt);
+    localStorage.setItem("lipamt", lipitysamt);
+    localStorage.setItem("eti", edtier);
+    localStorage.setItem("lipco", lipitysmaksu);
+    localStorage.setItem("infco", infinityCost);
+    localStorage.setItem("infmul", infinityMulti);
     setTimeout(sav,2000);
 }
 function lipitysosto() {
