@@ -5,7 +5,12 @@ var edtier = localStorage.getItem("eti");
 var lipitysmaksu = localStorage.getItem("lipco");
 var infinityCost = localStorage.getItem("infco");
 var infinityMulti = localStorage.getItem("infmul");
-
+parinaamt = Number(parinaamt);
+lipitysamt = Number(lipitysamt);
+edtier = Number(edtier);
+lipitysmaksu = Number(lipitysmaksu);
+infinityCost = Number(infinityCost);
+infinityMulti = Number(infinityMulti);
 function RESET() {
     parinaamt = 0;
     lipitysamt = 1;
