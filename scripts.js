@@ -46,6 +46,7 @@ function infinityED() {
     if (parinaamt >= infinityCost) {
         parinaamt = 0;
         lipitysamt = 1;
+        document.getElementById("ED").src="tropicaled.png";
         lipitysmaksu = 10;
         if (edtier = 1) {
             edtier = 2;
