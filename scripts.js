@@ -27,8 +27,8 @@ function RESET() {
     
 }
 
-
-
+var ppee = document.getElementById("ppe");
+var inftext = document.getElementById("maksuifn");
 var lippitekst = document.getElementById("maksu");
 var ed = document.getElementById("ED");
 var parinatxt = document.getElementById("parina");
@@ -36,9 +36,12 @@ lippitekst.textContent = "Päivitä lipitys taitoja <br> Maksaa: " + lipitysmaks
 function clickEventimg() {
     parinaamt = parinaamt + 1 * lipitysamt * edtier;
     parinatxt.textContent = "Pärinä: " + parinaamt;
+    ppee.textContent = "+" + 1 * lipitysamt * edtier;
+    ppee.style.opacity = 1;
+
 }
 function clickanim() {
-    
+    ppee.style.transform = 'rotate(90deg)';
 }
 function infinityUpgradesscreen() {
 
@@ -56,7 +59,7 @@ function infinityED() {
             
         }
         else {
-            infinityMulti = infinityMulti + 1.2;
+
         }
         infinityCost = infinityCost * 3;
         
@@ -73,12 +76,14 @@ function updateinterface() {
     if (edtier == 1){
         document.getElementById("ED").src="edgreenfruit.png";
     }
-    lippitekst.textContent = "Päivitä lipitys taitoja" + "Maksaa: " + lipitysmaksu;
+    lippitekst.textContent = "Päivitä lipitystaitoja" + " Maksaa: " + lipitysmaksu;
+    inftext.textContent = "aloita uusi loputtomuus" + " Maksaa: " + infinityCost
     setTimeout(updateinterface,50);
 }
 function loadin() {
     savegame();
     updateinterface();
+    opacitydown();
 }
 
 function savegame() {
@@ -98,4 +103,9 @@ function lipitysosto() {
         lippitekst.textContent = "Päivitä lipitys taitoja" + "Maksaa: " + lipitysmaksu;
         parinatxt.textContent = "Pärinä: " + parinaamt;
     }
+}
+function opacitydown() {
+    ppee.style.opacity -= 0.02;
+    
+    setTimeout(opacitydown,20);
 }

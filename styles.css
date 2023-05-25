@@ -15,18 +15,20 @@ h1 {
     margin: 0;
 }
 .Continf {
-    position: fixed;
+    position: relative;
     max-width: 100px;
     margin: 0;
-    bottom: 0;
     left: 0;
 
 }
 .Continf .infcont {
-    position: fixed;
+    max-width: 80px;
+    position: absolute;
     cursor: pointer;
     color: #d4a302;
-    padding: 20px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.295);
+    text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 25px rgb(255, 0, 0), 0 0 5px rgb(0, 0, 255);
 }
 .container .content {
     position: absolute;
@@ -38,6 +40,16 @@ h1 {
     padding: 20px;
     cursor: pointer;
 }
+#ppe {
+    max-width: 100%;
+    text-align: center;
+    font-size: 150%;
+    margin-top: -90px;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: normal;
+    padding: 20px;
+    
+}
 #reset {
     position: fixed;
     bottom: 0;
@@ -46,10 +58,11 @@ h1 {
 #infinity {
     position: fixed;
     width: 100px;
+    margin: auto;
     height: 100px;
-    left: 0;
+    margin-right: auto;
     cursor: pointer;
-    bottom: 0;
+    margin-top: auto;
 }
 
 #lipitys {
@@ -63,14 +76,13 @@ h1 {
 }
 
 #ED {
-    position: fixed;
     cursor: pointer;
     width:132px;
     height:400px;
     display: block;
     margin-top: -30px;
-    left: auto;
-    right: auto;
+    margin-left: auto;
+    margin-right: auto;
     box-shadow: greenyellow;
 
 }
