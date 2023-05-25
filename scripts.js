@@ -34,12 +34,11 @@ var ed = document.getElementById("ED");
 var parinatxt = document.getElementById("parina");
 lippitekst.textContent = "Päivitä lipitys taitoja <br> Maksaa: " + lipitysmaksu;
 function clickEventimg() {
-
-    ed.style.height = "300px";
-    ed.style.width = "99px";
-    setTimeout(clickEventimgup,20)
     parinaamt = parinaamt + 1 * lipitysamt * edtier;
     parinatxt.textContent = "Pärinä: " + parinaamt;
+}
+function clickanim() {
+    
 }
 function infinityUpgradesscreen() {
 
@@ -99,8 +98,4 @@ function lipitysosto() {
         lippitekst.textContent = "Päivitä lipitys taitoja" + "Maksaa: " + lipitysmaksu;
         parinatxt.textContent = "Pärinä: " + parinaamt;
     }
-}
-function clickEventimgup() {
-    ed.style.height = "400px";
-    ed.style.width = "132px";
 }
