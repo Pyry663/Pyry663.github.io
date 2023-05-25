@@ -50,7 +50,7 @@ function infinityED() {
     if (parinaamt >= infinityCost) {
         parinaamt = 0;
         lipitysamt = 1;
-        document.getElementById("ED").src="tropicaled.png";
+        document.getElementById("ED").src="tropicaled1.png";
         lipitysmaksu = 10;
         if (edtier == 1) {
             edtier = 2;
@@ -71,7 +71,7 @@ function sav() {
 function updateinterface() {
     parinatxt.textContent = "Pärinä: " + parinaamt;
     if (edtier == 2) {
-        document.getElementById("ED").src="tropicaled.png";
+        document.getElementById("ED").src="tropicaled1.png";
     }
     if (edtier == 1){
         document.getElementById("ED").src="edgreenfruit.png";
