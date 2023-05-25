@@ -41,14 +41,21 @@ h1 {
     cursor: pointer;
 }
 #ppe {
-    max-width: 100%;
+    max-width: auto;
     text-align: center;
     font-size: 150%;
     margin-top: -90px;
     font-family: "Source Sans Pro", sans-serif;
     font-weight: normal;
     padding: 20px;
-    
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    outline: auto;
+    z-index: -1;
 }
 #reset {
     position: fixed;
@@ -73,6 +80,7 @@ h1 {
     cursor: pointer;
     outline: auto;
     outline-width: 8%;
+    z-index: 1;
 }
 
 #ED {
