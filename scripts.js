@@ -5,7 +5,7 @@ var edtier = localStorage.getItem("eti");
 var lipitysmaksu = localStorage.getItem("lipco");
 var infinityCost = localStorage.getItem("infco");
 var infinityMulti = localStorage.getItem("infmul");
-if (parinaamt = null) {
+function RESET() {
     var parinaamt = 0;
     var lipitysamt = 1;
     var edtier = 1;
@@ -13,6 +13,8 @@ if (parinaamt = null) {
     var infinityCost = 10000;
     var infinityMulti = 1;
 }
+
+
 
 
 var lippitekst = document.getElementById("maksu");
