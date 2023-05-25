@@ -12,8 +12,14 @@
     </head>
 
     <body onload="loadin()">
-        <p id="ppe"> sus</p>
+    <div class="tab">
+        <button id="edtabbutton"class="tablinks" onclick="openTab(event, 'EDTab')">ED</button>
+        <button id="Infinitytab"class="tablinks" onclick="openTab(event, 'Infinitytab')">Infinity</button>
+        <button id=""class="tablinks" onclick="openTab(event, 'ComingSoon')">Coming Soon...</button>
+    </div>
+    <div id="EDTab" class="tabcontent">
         <h1 id="parina">Pärinä:</h1>
+        <p id="ppe"> sus</p>
         <div onclick="lipitysosto()" class="container">
             <img id="lipitys" src="lipitystys.png">
             <div id="maksu" class="content">
@@ -33,7 +39,7 @@
         <button id="reset" onclick="RESET()">RESET!!!</button>
         <!-- Load external JavaScript -->
         <script src="scripts.js"></script>
-        
+    </div>
     </body>
 
 </html>
