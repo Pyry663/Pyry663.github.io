@@ -29,7 +29,6 @@ function RESET() {
 
 
 
-
 var lippitekst = document.getElementById("maksu");
 var ed = document.getElementById("ED");
 var parinatxt = document.getElementById("parina");
@@ -41,6 +40,9 @@ function clickEventimg() {
     setTimeout(clickEventimgup,20)
     parinaamt = parinaamt + 1 * lipitysamt * edtier;
     parinatxt.textContent = "Pärinä: " + parinaamt;
+}
+function infinityUpgradesscreen() {
+
 }
 function infinityED() {
     if (parinaamt >= infinityCost) {
@@ -64,6 +66,19 @@ function infinityED() {
 function sav() {
     setTimeout(savegame,8000);
 }
+function updateinterface() {
+    parinatxt.textContent = "Pärinä: " + parinaamt;
+    if (edtier = 2) {
+        document.getElementById("ED").src="tropicaled.png";
+    }
+    lippitekst.textContent = "Päivitä lipitys taitoja" + "Maksaa: " + lipitysmaksu;
+    setTimeout(updateinterface,50);
+}
+function loadin() {
+    savegame();
+    updateinterface();
+}
+
 function savegame() {
     localStorage.setItem("paramt", parinaamt);
     localStorage.setItem("lipamt", lipitysamt);
