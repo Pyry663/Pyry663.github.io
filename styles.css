@@ -14,6 +14,16 @@ h1 {
     max-width:192px;
     margin: 0;
 }
+.Continf {
+    position: relative;
+    max-width: 100px;
+    margin: 0;
+
+}
+.Continf .infcont {
+    position: absolute;
+    cursor: pointer;
+}
 .container .content {
     position: absolute;
     bottom: 1%;
@@ -29,7 +39,7 @@ h1 {
     bottom: 0;
 }
 #infinity {
-    position: absolute;
+    position: fixed;
     width: 100px;
     height: 100px;
     margin-left: auto;
