@@ -56,7 +56,7 @@ function infinityED() {
         else {
             infinityMulti = infinityMulti + 1.2;
         }
-        infinityCost = infinityCost * 2.71;
+        infinityCost = infinityCost * 3;
         
     }
 }
@@ -75,7 +75,7 @@ function savegame() {
 function lipitysosto() {
     if (parinaamt >= lipitysmaksu) {
         parinaamt = parinaamt - lipitysmaksu;
-        lipitysmaksu = lipitysmaksu * 1.58;
+        lipitysmaksu = lipitysmaksu * 2;
         lipitysamt += 1 * infinityMulti;
         lippitekst.textContent = "Päivitä lipitys taitoja" + "Maksaa: " + lipitysmaksu;
         parinatxt.textContent = "Pärinä: " + parinaamt;
