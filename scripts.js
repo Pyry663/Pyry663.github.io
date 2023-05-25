@@ -71,6 +71,9 @@ function updateinterface() {
     if (edtier = 2) {
         document.getElementById("ED").src="tropicaled.png";
     }
+    if (edtier = 1){
+        document.getElementById("ED").src="edgreenfruit.png";
+    }
     lippitekst.textContent = "Päivitä lipitys taitoja" + "Maksaa: " + lipitysmaksu;
     setTimeout(updateinterface,50);
 }

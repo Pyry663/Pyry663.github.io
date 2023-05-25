@@ -23,9 +23,11 @@ h1 {
     cursor: pointer;
 }
 #reset {
-    margin-bottom: 0;
+    position: fixed;
+    bottom: 0;
 }
 #infinity {
+    position: absolute;
     width: 100px;
     height: 100px;
     margin-left: auto;
