@@ -49,7 +49,7 @@ function infinityED() {
         lipitysamt = 1;
         document.getElementById("ED").src="tropicaled.png";
         lipitysmaksu = 10;
-        if (edtier = 1) {
+        if (edtier == 1) {
             edtier = 2;
         }
         if (edtier <= 3) {
@@ -67,10 +67,10 @@ function sav() {
 }
 function updateinterface() {
     parinatxt.textContent = "Pärinä: " + parinaamt;
-    if (edtier = 2) {
+    if (edtier == 2) {
         document.getElementById("ED").src="tropicaled.png";
     }
-    if (edtier = 1){
+    if (edtier == 1){
         document.getElementById("ED").src="edgreenfruit.png";
     }
     lippitekst.textContent = "Päivitä lipitys taitoja" + "Maksaa: " + lipitysmaksu;
