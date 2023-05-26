@@ -130,6 +130,9 @@ function purhaceinfupgrade(evt, InfUpgrade, price) {
         if (InfUpgrade == "InfinityUP3") {
             autoclicker = 1;
         }
+        if (InfUpgrade == "InfinityUP2")   {
+            dd
+        }
         document.getElementById(InfUpgrade).style.display = "block";
         evt.currentTarget.className += " active";
         console.Log(evt.currentTarget.className);
