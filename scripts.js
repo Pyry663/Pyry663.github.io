@@ -9,6 +9,7 @@ var edmulti = localStorage.getItem("edmult");
 var autoclicker = localStorage.getItem("autcli");
 parinaamt = Number(parinaamt);
 lipitysamt = Number(lipitysamt);
+var tubwer = 0;
 edtier = Number(edtier);
 lipitysmaksu = Number(lipitysmaksu);
 infinityCost = Number(infinityCost);
@@ -64,25 +65,32 @@ function infinityUpgradesscreen() {
 }
 function infinityED() {
     if (parinaamt >= infinityCost) {
-        parinaamt = 0;
         lipitysamt = 1;
-        
+        console.log("s");
 
         parinatxt.textContent = "Pärinä: " + parinaamt;
-        infinitypoints = infinitypoints + 1;
+        
         IP1.textContent = "LoputtomiaPärinöitä: " + infinitypoints;
-        document.getElementById("ED").src="tropicaled1.png";
         lipitysmaksu = 10;
         if (edtier == 1) {
             edtier = 2;
         }
-        if (edtier <= 3) {
+        if (edtier >= 3) {
             
+            tubwer = parinaamt / 10000;
+            tubwer = Math.round(tubwer);
+            
+            console.log(tubwer);
+            infinitypoints = infinitypoints + tubwer;
+            IP1.textContent = "LoputtomiaPärinöitä: " + infinitypoints;
+            parinaamt = 0;
         }
         else {
-
+            infinitypoints = infinitypoints + 1;
+            parinaamt = 0;
         }
         infinityCost = 10000;
+        
         
     }
 }
@@ -97,11 +105,17 @@ function updateinterface() {
     if (edtier == 1){
         document.getElementById("ED").src="edgreenfruit.png";
     }
+    if (edtier == 3){
+        document.getElementById("ED").src="sourstrawberry.png";
+    }
     IP1.textContent = "LoputtomiaPärinöitä: " + infinitypoints;
     lippitekst.textContent = "Päivitä lipitystaitoja" + " Maksaa: " + lipitysmaksu;
     inftext.textContent = "aloita uusi loputtomuus" + " Maksaa: " + infinityCost
     if (edmulti == 1) {
         
+    }
+    if (infinitypoints >= 10001) {
+        infinitypoints = 10000;
     }
     setTimeout(updateinterface,50);
     infinityCost = 10000;
@@ -119,7 +133,6 @@ function autoclicker1() {
         clickEventimg();
     }
     setTimeout(autoclicker1, 800);
-    console.Log("SUSUSUS");
 }
 function purhaceinfupgrade(evt, InfUpgrade, price) {
     var i, infupgrades;
@@ -130,8 +143,8 @@ function purhaceinfupgrade(evt, InfUpgrade, price) {
         if (InfUpgrade == "InfinityUP3") {
             autoclicker = 1;
         }
-        if (InfUpgrade == "InfinityUP2")   {
-            dd
+        if (InfUpgrade == "InfinityUP2") {
+            edtier = 3;
         }
         document.getElementById(InfUpgrade).style.display = "block";
         evt.currentTarget.className += " active";
