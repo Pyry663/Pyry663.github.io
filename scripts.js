@@ -6,6 +6,7 @@ var lipitysmaksu = localStorage.getItem("lipco");
 var infinityCost = localStorage.getItem("infco");
 var infinitypoints = localStorage.getItem("infpoin");
 var edmulti = localStorage.getItem("edmult");
+var autoclicker = localStorage.getItem("autcli");
 parinaamt = Number(parinaamt);
 lipitysamt = Number(lipitysamt);
 edtier = Number(edtier);
@@ -13,6 +14,7 @@ lipitysmaksu = Number(lipitysmaksu);
 infinityCost = Number(infinityCost);
 infinitypoints = Number(infinitypoints);
 edmulti = Number(edmulti);
+autoclicker = Number(autoclicker);
 function RESET() {
     parinaamt = 0;
     lipitysamt = 1;
@@ -21,6 +23,7 @@ function RESET() {
     infinityCost = 10000;
     infinitypoints = 0;
     edmulti = 0;
+    autoclicker = 0;
     localStorage.setItem("paramt", parinaamt);
     localStorage.setItem("lipamt", lipitysamt);
     localStorage.setItem("eti", edtier);
@@ -28,6 +31,7 @@ function RESET() {
     localStorage.setItem("infco", infinityCost);
     localStorage.setItem("infpoin", infinitypoints);
     localStorage.setItem("edmult",edmulti);
+    localStorage.setItem("autcli",autoclicker);
     
 }
 var infupg = document.getElementById("infinityUP1");
@@ -41,12 +45,14 @@ lippitekst.textContent = "Päivitä lipitys taitoja <br> Maksaa: " + lipitysmaks
 function clickEventimg() {
     if (edmulti == 1) {
         parinaamt = parinaamt + 1 * lipitysamt * edtier * infinitypoints + 1;
+        ppee.textContent = "+" + 1 * lipitysamt * edtier * infinitypoints;
     }
     else {
         parinaamt = parinaamt + 1 * lipitysamt * edtier;
+        ppee.textContent = "+" + 1 * lipitysamt * edtier;
     }
     parinatxt.textContent = "Pärinä: " + parinaamt;
-    ppee.textContent = "+" + 1 * lipitysamt * edtier;
+    
     ppee.style.opacity = 1;
 
 }
@@ -60,7 +66,11 @@ function infinityED() {
     if (parinaamt >= infinityCost) {
         parinaamt = 0;
         lipitysamt = 1;
+        
+
+        parinatxt.textContent = "Pärinä: " + parinaamt;
         infinitypoints = infinitypoints + 1;
+        IP1.textContent = "LoputtomiaPärinöitä: " + infinitypoints;
         document.getElementById("ED").src="tropicaled1.png";
         lipitysmaksu = 10;
         if (edtier == 1) {
@@ -72,7 +82,7 @@ function infinityED() {
         else {
 
         }
-        infinityCost = infinityCost + 10000;
+        infinityCost = 10000;
         
     }
 }
@@ -91,15 +101,25 @@ function updateinterface() {
     lippitekst.textContent = "Päivitä lipitystaitoja" + " Maksaa: " + lipitysmaksu;
     inftext.textContent = "aloita uusi loputtomuus" + " Maksaa: " + infinityCost
     if (edmulti == 1) {
-        document.getElementById("infinityUP1").className = "infinityupgrades active";
+        
     }
     setTimeout(updateinterface,50);
+    infinityCost = 10000;
+    
 }
 function loadin() {
     savegame();
     openTab(event,"EDTab");
     updateinterface();
     opacitydown();
+    autoclicker1();
+}
+function autoclicker1() {
+    if (autoclicker == 1) {
+        clickEventimg();
+    }
+    setTimeout(autoclicker1, 800);
+    console.Log("SUSUSUS");
 }
 function purhaceinfupgrade(evt, InfUpgrade, price) {
     var i, infupgrades;
@@ -107,9 +127,12 @@ function purhaceinfupgrade(evt, InfUpgrade, price) {
         if (price == 5) {
             edmulti = 1;
         }
+        if (InfUpgrade == "InfinityUP3") {
+            autoclicker = 1;
+        }
         document.getElementById(InfUpgrade).style.display = "block";
         evt.currentTarget.className += " active";
-        Console.Log(evt.currentTarget.className);
+        console.Log(evt.currentTarget.className);
         infinitypoints -= price;
     }
     
@@ -135,6 +158,7 @@ function savegame() {
     localStorage.setItem("infco", infinityCost);
     localStorage.setItem("infpoin", infinitypoints);
     localStorage.setItem("edmult",edmulti);
+    localStorage.setItem("autcli",autoclicker);
     setTimeout(sav,2000);
 }
 function lipitysosto() {
