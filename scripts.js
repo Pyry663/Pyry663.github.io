@@ -1,4 +1,4 @@
-
+import { Decimal } from "./break_eternity.esm.js";
 var parinaamt = localStorage.getItem("paramt");
 var lipitysamt = localStorage.getItem("lipamt");
 var edtier = localStorage.getItem("eti");
@@ -10,6 +10,8 @@ var autoclicker = localStorage.getItem("autcli");
 parinaamt = Number(parinaamt);
 lipitysamt = Number(lipitysamt);
 var tubwer = 0;
+var sus = new Decimal("1e3309");
+
 edtier = Number(edtier);
 lipitysmaksu = Number(lipitysmaksu);
 infinityCost = Number(infinityCost);
