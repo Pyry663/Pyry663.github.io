@@ -1,42 +1,53 @@
-import { Decimal } from "./break_eternity.esm.js";
-var parinaamt = localStorage.getItem("paramt");
-var lipitysamt = localStorage.getItem("lipamt");
-var edtier = localStorage.getItem("eti");
-var lipitysmaksu = localStorage.getItem("lipco");
-var infinityCost = localStorage.getItem("infco");
-var infinitypoints = localStorage.getItem("infpoin");
-var edmulti = localStorage.getItem("edmult");
-var autoclicker = localStorage.getItem("autcli");
-parinaamt = Number(parinaamt);
-lipitysamt = Number(lipitysamt);
-var tubwer = 0;
-var sus = new Decimal("1e3309");
 
-edtier = Number(edtier);
-lipitysmaksu = Number(lipitysmaksu);
-infinityCost = Number(infinityCost);
-infinitypoints = Number(infinitypoints);
-edmulti = Number(edmulti);
+
+var parinaamt = localStorage.getItem("parinaamt");
+var lipitysamt = localStorage.getItem("lipitysamt");
+var edtier = localStorage.getItem("edtier");
+var lipitysmaksu = localStorage.getItem("lipitysmaksu");
+var infinityCost = localStorage.getItem("infinityCost");
+var infinitypoints = localStorage.getItem("infinitypoints");
+var maxall = true;
+var edmulti = localStorage.getItem("edmulti");
+var autoclicker = localStorage.getItem("autoclicker");
+var edmulti = Number(edmulti);
+console.log(parinaamt);
+var theme = "Auto";
+console.log(typeof(parinaamt));
+parinaamt = new Decimal(parinaamt);
+lipitysamt = new Decimal(lipitysamt);
+edtier = new Decimal(edtier);
+lipitysmaksu = new Decimal(lipitysmaksu);
+infinityCost = new Decimal(infinityCost);
+infinitypoints = new Decimal(infinitypoints);
+var tubwer = new Decimal(0);
+var canby = new Decimal(0);
+console.log(typeof(parinaamt));
+var comsed = document.getElementById("Ed skin");
+Decimal.rounding = Decimal.ROUND_HALF_CEIL;
+var edskinselected = "Auto";
 autoclicker = Number(autoclicker);
 function RESET() {
-    parinaamt = 0;
-    lipitysamt = 1;
-    edtier = 1;
-    lipitysmaksu = 10;
-    infinityCost = 10000;
-    infinitypoints = 0;
+    parinaamt = new Decimal(0);
+    lipitysamt = new Decimal(1);
+    edtier = new Decimal(1);
+    lipitysmaksu = new Decimal(10);
+    infinityCost = new Decimal(10000);
+    infinitypoints = new Decimal(0);
     edmulti = 0;
     autoclicker = 0;
-    localStorage.setItem("paramt", parinaamt);
-    localStorage.setItem("lipamt", lipitysamt);
-    localStorage.setItem("eti", edtier);
-    localStorage.setItem("lipco", lipitysmaksu);
-    localStorage.setItem("infco", infinityCost);
-    localStorage.setItem("infpoin", infinitypoints);
-    localStorage.setItem("edmult",edmulti);
-    localStorage.setItem("autcli",autoclicker);
+    localStorage.setItem("parinaamt",parinaamt);
+    
+    localStorage.setItem("lipitysamt",lipitysamt);
+    localStorage.setItem("edtier",edtier);
+    localStorage.setItem("lipitysmaksu",lipitysmaksu);
+    localStorage.setItem("infinityCost",infinityCost);
+    localStorage.setItem("infinitypoints",infinitypoints);
+    localStorage.setItem("edmulti",0);
+    localStorage.setItem("autoclicker",0);
     
 }
+var autobuyertab = document.getElementById("Autobuyertabb");
+var mxa2 = document.getElementById("MaxAll1");
 var infupg = document.getElementById("infinityUP1");
 var IP1 = document.getElementById("IP");
 var ppee = document.getElementById("ppe");
@@ -46,15 +57,20 @@ var ed = document.getElementById("ED");
 var parinatxt = document.getElementById("parina");
 lippitekst.textContent = "Päivitä lipitys taitoja <br> Maksaa: " + lipitysmaksu;
 function clickEventimg() {
-    if (edmulti == 1) {
-        parinaamt = parinaamt + 1 * lipitysamt * edtier * infinitypoints + 1;
-        ppee.textContent = "+" + 1 * lipitysamt * edtier * infinitypoints;
+    tubwer = new Decimal(1);
+    
+
+    if (edmulti == 1 && infinitypoints.gte(1)) {
+        tubwer = tubwer.times(lipitysamt).times(edtier).times(infinitypoints)
+        parinaamt = parinaamt.plus(tubwer)
+        ppee.textContent = "+" + lipitysamt.times(edtier).times(infinitypoints);
     }
     else {
-        parinaamt = parinaamt + 1 * lipitysamt * edtier;
-        ppee.textContent = "+" + 1 * lipitysamt * edtier;
+        tubwer = tubwer.times(lipitysamt).times(edtier)
+        parinaamt = parinaamt.plus(tubwer);
+        ppee.textContent = "+" + tubwer;
     }
-    parinatxt.textContent = "Pärinä: " + parinaamt;
+    parinatxt.textContent = "Pärinä: " + parinaamt.round();
     
     ppee.style.opacity = 1;
 
@@ -62,34 +78,72 @@ function clickEventimg() {
 function clickanim() {
     ppee.style.transform = 'rotate(90deg)';
 }
+function maxalltogl() {
+    var mxa2 = document.getElementById("MaxAll1");
+    maxall = !maxall;
+    if (maxall) {
+        mxa2.innerHTML = "Max All: On";
+    }
+    else {
+        mxa2.innerHTML = "Max All: Off";
+    }
+}
+function buyMaxlip(){
+    while (parinaamt.gte(lipitysmaksu)) {
+        if (parinaamt.gte(lipitysmaksu)) {
+            if (lipitysmaksu.gte(10000)) {
+                parinaamt = parinaamt.minus(lipitysmaksu);
+                lipitysmaksu = lipitysmaksu.times(5);
+                lipitysamt = lipitysamt.add(10);
+                if (lipitysmaksu.equals(110)){
+                    lipitysmaksu = lipitysmaksu.minus(10);
+                }
+                lippitekst.textContent = "Päivitä lipitys taitoja" + "Maksaa: " + lipitysmaksu;
+                parinatxt.textContent = "Pärinä: " + parinaamt;
+            }
+            else{
+                parinaamt = parinaamt.minus(lipitysmaksu);
+                lipitysmaksu = lipitysmaksu.add(100);
+                lipitysamt = lipitysamt.add(1);
+                if (lipitysmaksu.equals(110)){
+                    lipitysmaksu = lipitysmaksu.minus(10);
+                }
+                lippitekst.textContent = "Päivitä lipitys taitoja" + "Maksaa: " + lipitysmaksu;
+                parinatxt.textContent = "Pärinä: " + parinaamt;
+            }
+            
+        }
+    }
+    
+ }
 function infinityUpgradesscreen() {
 
 }
 function infinityED() {
-    if (parinaamt >= infinityCost) {
-        lipitysamt = 1;
+    if (parinaamt.gte(infinityCost)) {
+        lipitysamt = lipitysamt.minus(lipitysamt).plus(1);
         console.log("s");
 
         parinatxt.textContent = "Pärinä: " + parinaamt;
         
         IP1.textContent = "LoputtomiaPärinöitä: " + infinitypoints;
-        lipitysmaksu = 10;
-        if (edtier == 1) {
-            edtier = 2;
+        lipitysmaksu = lipitysmaksu.minus(lipitysmaksu).plus(10);
+        if (edtier.equals(1)) {
+            edtier = edtier.plus(1);
         }
-        if (edtier >= 3) {
+        if (edtier.gte(3)) {
             
-            tubwer = parinaamt / 10000;
-            tubwer = Math.round(tubwer);
+            tubwer = parinaamt.divide(10000 * parinaamt.dividedBy(parinaamt.dividedBy(100)));
+            tubwer = tubwer.round();
             
             console.log(tubwer);
-            infinitypoints = infinitypoints + tubwer;
+            infinitypoints = infinitypoints.add(tubwer);
             IP1.textContent = "LoputtomiaPärinöitä: " + infinitypoints;
-            parinaamt = 0;
+            parinaamt = parinaamt.minus(parinaamt);
         }
         else {
-            infinitypoints = infinitypoints + 1;
-            parinaamt = 0;
+            infinitypoints = infinitypoints.plus(1);
+            parinaamt = parinaamt.minus(parinaamt);
         }
         infinityCost = 10000;
         
@@ -100,35 +154,68 @@ function sav() {
     setTimeout(savegame,8000);
 }
 function updateinterface() {
-    parinatxt.textContent = "Pärinä: " + parinaamt;
-    if (edtier == 2) {
-        document.getElementById("ED").src="tropicaled1.png";
+    parinaamt = parinaamt.round();
+    if (autoclicker == 1 ) {
+        autobuyertab.style.visibility = "";
     }
-    if (edtier == 1){
-        document.getElementById("ED").src="edgreenfruit.png";
+    else {
+        autobuyertab.style.visibility = "hidden";
     }
-    if (edtier == 3){
-        document.getElementById("ED").src="sourstrawberry.png";
-    }
+    parinatxt.textContent = "Pärinä: " + parinaamt.round();
+
     IP1.textContent = "LoputtomiaPärinöitä: " + infinitypoints;
     lippitekst.textContent = "Päivitä lipitystaitoja" + " Maksaa: " + lipitysmaksu;
     inftext.textContent = "aloita uusi loputtomuus" + " Maksaa: " + infinityCost
     if (edmulti == 1) {
         
     }
-    if (infinitypoints >= 10001) {
-        infinitypoints = 10000;
+    if (edskinselected == "Auto") {
+        if (edtier.equals(2)) {
+            document.getElementById("ED").src="tropicaled1.png";
+        }
+        if (edtier.equals(1)){
+            document.getElementById("ED").src="edgreenfruit.png";
+        }
+        if (edtier.equals(3)){
+            document.getElementById("ED").src="sourstrawberry.png";
+        }
+    } else if (edskinselected == "sourstrawberry") {
+        document.getElementById("ED").src="sourstrawberry.png";
+    } else if (edskinselected == "greenfruit") {
+        document.getElementById("ED").src="edgreenfruit.png";
+    } else if (edskinselected == "Tropical") {
+        document.getElementById("ED").src="tropicaled1.png";
     }
+    if (theme == "auto")
+    {
+        document.body.style.backgroundColor = "aquamarine";
+    } else if (theme == "dark") {
+        document.body.style.backgroundColor = "black";
+    }
+    
     setTimeout(updateinterface,50);
-    infinityCost = 10000;
     
 }
+$(document).ready(function() {
+    $("select.edskinsele").change(function() {
+        let selectedItem = $(this).children("option:selected").val();
+        edskinselected = selectedItem;
+    });
+});
+$(document).ready(function() {
+    $("select.themesele").change(function() {
+        let selectedItem = $(this).children("option:selected").val();
+        theme = selectedItem;
+    });
+});
 function loadin() {
-    savegame();
+    setTimeout(savegame,10000);
     openTab(event,"EDTab");
     updateinterface();
     opacitydown();
     autoclicker1();
+    maxalltogl();
+    maxalltogl();
 }
 function autoclicker1() {
     if (autoclicker == 1) {
@@ -146,12 +233,11 @@ function purhaceinfupgrade(evt, InfUpgrade, price) {
             autoclicker = 1;
         }
         if (InfUpgrade == "InfinityUP2") {
-            edtier = 3;
+            edtier = new Decimal(3);
         }
         document.getElementById(InfUpgrade).style.display = "block";
         evt.currentTarget.className += " active";
-        console.Log(evt.currentTarget.className);
-        infinitypoints -= price;
+        infinitypoints = infinitypoints.minus(price);
     }
     
 }
@@ -169,24 +255,47 @@ function openTab(evt, TabName) {
     evt.currentTarget.className += " active";
   }
 function savegame() {
-    localStorage.setItem("paramt", parinaamt);
-    localStorage.setItem("lipamt", lipitysamt);
-    localStorage.setItem("eti", edtier);
-    localStorage.setItem("lipco", lipitysmaksu);
-    localStorage.setItem("infco", infinityCost);
-    localStorage.setItem("infpoin", infinitypoints);
-    localStorage.setItem("edmult",edmulti);
-    localStorage.setItem("autcli",autoclicker);
-    setTimeout(sav,2000);
+    localStorage.setItem("parinaamt",parinaamt);
+    localStorage.setItem("lipitysamt",lipitysamt);
+    localStorage.setItem("edtier",edtier);
+    localStorage.setItem("lipitysmaksu",lipitysmaksu);
+    localStorage.setItem("infinityCost",infinityCost);
+    localStorage.setItem("infinitypoints",infinitypoints);
+    localStorage.setItem("autoclicker",autoclicker);
+    localStorage.setItem("edmulti",edmulti);
+    setTimeout(savegame,10000);
+
 }
 function lipitysosto() {
-    if (parinaamt >= lipitysmaksu) {
-        parinaamt = parinaamt - lipitysmaksu;
-        lipitysmaksu = lipitysmaksu + 100;
-        lipitysamt += 1;
-        lippitekst.textContent = "Päivitä lipitys taitoja" + "Maksaa: " + lipitysmaksu;
-        parinatxt.textContent = "Pärinä: " + parinaamt;
+    if (maxall) {
+        buyMaxlip();
     }
+    else {
+        if (parinaamt.gte(lipitysmaksu)) {
+            if (lipitysmaksu.gte(10000)) {
+                parinaamt = parinaamt.minus(lipitysmaksu);
+                lipitysmaksu = lipitysmaksu.times(5);
+                lipitysamt = lipitysamt.add(10);
+                if (lipitysmaksu.equals(110)){
+                    lipitysmaksu = lipitysmaksu.minus(10);
+                }
+                lippitekst.textContent = "Päivitä lipitys taitoja" + "Maksaa: " + lipitysmaksu;
+                parinatxt.textContent = "Pärinä: " + parinaamt;
+            }
+            else{
+                parinaamt = parinaamt.minus(lipitysmaksu);
+                lipitysmaksu = lipitysmaksu.add(100);
+                lipitysamt = lipitysamt.add(1);
+                if (lipitysmaksu.equals(110)){
+                    lipitysmaksu = lipitysmaksu.minus(10);
+                }
+                lippitekst.textContent = "Päivitä lipitys taitoja" + "Maksaa: " + lipitysmaksu;
+                parinatxt.textContent = "Pärinä: " + parinaamt;
+            }
+            
+        }
+    }
+    
 }
 function opacitydown() {
     ppee.style.opacity -= 0.02;

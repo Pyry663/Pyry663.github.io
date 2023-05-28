@@ -8,17 +8,15 @@
 
         <!-- Load external CSS styles -->
         <link rel="stylesheet" href="styles.css">
-
+        <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
     </head>
-    <script type="module">
-        import Decimal from "./break_eternity.esm.js";
-    </script>
     <body onload="loadin()">
-        
+    <script src="https://cdn.jsdelivr.net/npm/break_infinity.js@2"></script>
     <div class="tab">
         <button id="edtabbutton"class="tablinks" onclick="openTab(event, 'EDTab')">ED</button>
         <button id="Infinitytabb"class="tablinks" onclick="openTab(event, 'Infinitytab')">Infinity</button>
-        <button id=""class="tablinks" onclick="openTab(event, 'ComingSoon')">Coming Soon...</button>
+        <button id="Settings1"class="tablinks" onclick="openTab(event, 'Settings')">Settings</button>
+        <button id="Autobuyertabb"class="tablinks" onclick="openTab(event, 'Autobuyertab')">Autobuyers</button>
     </div>
     <h1 id="IP">InfinityPoints:</h1>
     <h1 id="parina">Pärinä:</h1>
@@ -45,14 +43,39 @@
     </div>
         <button id="reset" onclick="RESET()">RESET!!!</button>
         <!-- Load external JavaScript -->
-        <script src="scripts.js"></script>
+        
     <div id="Infinitytab" class="tabcontent">
 
         <button id="InfinityUP1" class="infinityupgrades" onclick="purhaceinfupgrade(event, 'InfinityUP1', 5)">Lisää Multiplieri Ediin joka on yhtäkuin sinun Loputtomat Pärinät Maksaa: 5 LP </button>
-        <button id="InfinityUP2" class="infinityupgrades" onclick="purhaceinfupgrade(event, 'InfinityUP2', 1000)">Päivitä ED Maksaa: 1000 LP</button>
-        <button id="InfinityUP3" class="infinityupgrades" onclick="purhaceinfupgrade(event, 'InfinityUP3', 20)">AutoClicker Maksaa: 20 LP</button>
+        <button id="InfinityUP2" class="infinityupgrades" onclick="purhaceinfupgrade(event, 'InfinityUP2', 100)">Päivitä ED Maksaa: 100 LP</button>
+        <button id="InfinityUP3" class="infinityupgrades" onclick="purhaceinfupgrade(event, 'InfinityUP3', 20)">Unlock Autobuyers Maksaa: 20 LP</button>
     </div>
+    <div id="Settings" class="tabcontent">
+        <button id="MaxAll1" class="Settingss" onclick="maxalltogl()">Max All: On</button> 
+        <label for="Ed skin" class="settingslable">Choose ED Skin</label>
+        <select id="Ed skin" class="edskinsele" one>
+            <option value="auto">Auto</option>
+            <option value="greenfruit">GreenFruit</option>
+            <option value="Tropical">Tropical</option>
+            <option value="sourstrawberry">SourStrawberry</option>
+            
+        </select>
+        <label for="theme" class="settingslable">Choose theme</label>
+        <select id="theme" class="themesele" one>
+            <option value="auto">Auto</option>
+            <option value="dark">dark</option>
+            <option value="Tropical">Tropical</option>
+            <option value="EDtheme">????</option>
+            
+        </select>
+
     
+    </div>
+    <div id="Autobuyertab" class="tabcontent">
+
+
+    </div>
+    <script src="scripts.js"></script>
     </body>
 
 </html>
