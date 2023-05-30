@@ -1,5 +1,6 @@
 
 
+var parinaut1 = false;
 var parinaamt = localStorage.getItem("parinaamt");
 var lipitysamt = localStorage.getItem("lipitysamt");
 var edtier = localStorage.getItem("edtier");
@@ -11,7 +12,12 @@ var edmulti = localStorage.getItem("edmulti");
 var autoclicker = localStorage.getItem("autoclicker");
 var edmulti = Number(edmulti);
 console.log(parinaamt);
+var autoc = new Decimal(0);
 var theme = "Auto";
+if (localStorage.getItem("theme") != null) {
+    theme = localStorage.getItem("theme");
+    console.log(theme);
+}
 console.log(typeof(parinaamt));
 parinaamt = new Decimal(parinaamt);
 lipitysamt = new Decimal(lipitysamt);
@@ -19,6 +25,7 @@ edtier = new Decimal(edtier);
 lipitysmaksu = new Decimal(lipitysmaksu);
 infinityCost = new Decimal(infinityCost);
 infinitypoints = new Decimal(infinitypoints);
+
 var tubwer = new Decimal(0);
 var canby = new Decimal(0);
 console.log(typeof(parinaamt));
@@ -46,6 +53,7 @@ function RESET() {
     localStorage.setItem("autoclicker",0);
     
 }
+var parinaauto = document.getElementById("parinuponoff");
 var autobuyertab = document.getElementById("Autobuyertabb");
 var mxa2 = document.getElementById("MaxAll1");
 var infupg = document.getElementById("infinityUP1");
@@ -153,6 +161,9 @@ function infinityED() {
 function sav() {
     setTimeout(savegame,8000);
 }
+function toggleparin() {
+    parinaut1 = !parinaut1;
+}
 function updateinterface() {
     parinaamt = parinaamt.round();
     if (autoclicker == 1 ) {
@@ -216,12 +227,27 @@ function loadin() {
     autoclicker1();
     maxalltogl();
     maxalltogl();
+    autoclickerparina();
 }
+
 function autoclicker1() {
-    if (autoclicker == 1) {
-        clickEventimg();
-    }
-    setTimeout(autoclicker1, 800);
+
+}
+function autoclickerparina() {
+    if (parinaut1) {
+        if (document.getElementById("parinaupgbuton").value == "0") {
+            if (parinaamt.gte(lipitysmaksu)) {
+                lipitysosto();
+            }
+        } else {
+            autoc = document.getElementById("parinaupgbuton").value
+            autoc = new Decimal(autoc);
+            if (autoc.gt(lipitysamt) && parinaamt.gte(lipitysmaksu)) {
+                lipitysosto("autoclicker");
+            }
+        }
+    }   
+    setTimeout(autoclickerparina,100);
 }
 function purhaceinfupgrade(evt, InfUpgrade, price) {
     var i, infupgrades;
@@ -263,11 +289,12 @@ function savegame() {
     localStorage.setItem("infinitypoints",infinitypoints);
     localStorage.setItem("autoclicker",autoclicker);
     localStorage.setItem("edmulti",edmulti);
+    localStorage.setItem("theme",theme);
     setTimeout(savegame,10000);
 
 }
-function lipitysosto() {
-    if (maxall) {
+function lipitysosto(au) {
+    if (maxall && au != "autoclicker") {
         buyMaxlip();
     }
     else {

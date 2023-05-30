@@ -74,6 +74,38 @@ h1 {
     width: 100px;
     height: 20px;
 }
+#parinaupgbuton {
+    position: absolute;
+    left: 14%;
+    bottom: 25%;
+    
+}
+
+#parinuponoff {
+    right: 0%;
+    outline: none;
+}
+#clickeraonoff {
+    right: 0%;
+    outline: none;
+}
+#parinaupgbutontxt1 {
+    position: absolute;
+    left: 14%;
+    bottom: 45%;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+.autupinf {
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    max-width: 12%;
+}
+.Autobuyersbox {
+    position: relative;
+    padding: 20px;
+    border: 2px solid gray;
+    max-width: 85%;
+}
 .container {
     position: relative;
     max-width:192px;
