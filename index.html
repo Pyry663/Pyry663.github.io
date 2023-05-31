@@ -10,6 +10,9 @@
         <link rel="stylesheet" href="styles.css">
         <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
     </head>
+    <p>
+        <input id ="exportOutput">
+    </p>
     <body onload="loadin()">
     <script src="https://cdn.jsdelivr.net/npm/break_infinity.js@2"></script>
     <div class="tab">
@@ -24,7 +27,7 @@
     <div id="EDTab" class="tabcontent">
         
         <p id="ppe"> sus</p>
-        <div onclick="lipitysosto()" class="container">
+        <div onclick="lipitysosto('a')" class="container">
             <img id="lipitys" src="lipitystys.png">
             <div id="maksu" class="content">
                 <p>Päivitä lipitys taitoja <br> Maksaa: </p>
@@ -68,11 +71,22 @@
             <option value="EDtheme">????</option>
             
         </select>
+        <button id="export" class="Settingss" onclick="export1()">Kopioi Save</button>
 
     
     </div>
     <div id="Autobuyertab" class="tabcontent">
-
+        <div id="parinaupgdiv" class="Autobuyersbox">
+            <p id="publ" class="autupinf">Pärinä Upgrade Autobyer</p>
+            <label for="parinaupgbuton" id="parinaupgbutontxt1">Max Parinaupgrades <br>set <b>0</b> for no limit:</label>
+            <input type="number" id="parinaupgbuton">
+            <input type="checkbox" id="parinuponoff" onclick="toggleparin()">
+        </div>
+        <div id="clickera" class="Autobuyersbox">
+            <p id="publ" class="autupinf">Autoclicker</p>
+            <input type="checkbox" id="clickeraonoff" onclick="toggleautcli()">
+        </div>
+        
 
     </div>
     <script src="scripts.js"></script>

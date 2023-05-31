@@ -52,9 +52,7 @@ h1 {
     user-select: none;
 
 }
-#MaxAll1 {
-    background-color: gray;
-}
+
 #edtabbutton {
     border: 2px solid red;
 }
@@ -73,6 +71,46 @@ h1 {
     top: 120px;
     width: 100px;
     height: 20px;
+}
+#parinaupgbuton {
+    position: absolute;
+    left: 14%;
+    bottom: 25%;
+    
+}
+
+#parinuponoff {
+    right: 0%;
+    outline: none;
+}
+#clickeraonoff {
+    right: 0%;
+    outline: none;
+}
+#parinaupgbutontxt1 {
+    position: absolute;
+    left: 14%;
+    bottom: 45%;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+.autupinf {
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    max-width: 12%;
+}
+.Autobuyersbox {
+    position: relative;
+    padding: 20px;
+    border: 2px solid gray;
+    max-width: 85%;
+}
+.Settingss {
+    color: white;
+    width: 150px;
+    height: 75px;
+    cursor: pointer;
+    background-color: black;
+    border: solid 2px lime ;
 }
 .container {
     position: relative;
@@ -115,7 +153,9 @@ h1 {
     outline: auto;
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
-
+#Settings {
+    display: none;
+}
 #ppe {
     position: fixed;
     max-width: 100%;
