@@ -1,0 +1,3 @@
+[submodule "path_to_submodule"] 
+  path = ./break_infinity
+  url = https://cdn.jsdelivr.net/npm/break_infinity.js@2
