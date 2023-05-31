@@ -18,7 +18,7 @@ if (localStorage.getItem("theme") != null) {
     theme = localStorage.getItem("theme");
     console.log(theme);
 }
-
+console.log("w");
 var parinaut1 = false;
 var tubwer = new Decimal(0);
 var canby = new Decimal(0);
