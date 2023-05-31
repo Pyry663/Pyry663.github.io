@@ -52,9 +52,7 @@ h1 {
     user-select: none;
 
 }
-#MaxAll1 {
-    background-color: gray;
-}
+
 #edtabbutton {
     border: 2px solid red;
 }
@@ -106,6 +104,14 @@ h1 {
     border: 2px solid gray;
     max-width: 85%;
 }
+.Settingss {
+    color: white;
+    width: 150px;
+    height: 75px;
+    cursor: pointer;
+    background-color: black;
+    border: solid 2px lime ;
+}
 .container {
     position: relative;
     max-width:192px;
@@ -147,7 +153,9 @@ h1 {
     outline: auto;
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
-
+#Settings {
+    display: none;
+}
 #ppe {
     position: fixed;
     max-width: 100%;

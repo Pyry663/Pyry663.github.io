@@ -10,6 +10,9 @@
         <link rel="stylesheet" href="styles.css">
         <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
     </head>
+    <p>
+        <input id ="exportOutput">
+    </p>
     <body onload="loadin()">
     <script src="https://cdn.jsdelivr.net/npm/break_infinity.js@2"></script>
     <div class="tab">
@@ -68,6 +71,7 @@
             <option value="EDtheme">????</option>
             
         </select>
+        <button id="export" class="Settingss" onclick="export1()">Kopioi Save</button>
 
     
     </div>
@@ -80,7 +84,7 @@
         </div>
         <div id="clickera" class="Autobuyersbox">
             <p id="publ" class="autupinf">Autoclicker</p>
-            <input type="checkbox" id="clickeraonoff" onclick="toggleparin()">
+            <input type="checkbox" id="clickeraonoff" onclick="toggleautcli()">
         </div>
         
 
