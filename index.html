@@ -8,13 +8,14 @@
 
         <!-- Load external CSS styles -->
         <link rel="stylesheet" href="styles.css">
-        <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+
     </head>
     <p>
         <input id ="exportOutput">
     </p>
     <body onload="loadin()">
-    <script src="https://cdn.jsdelivr.net/npm/break_infinity.js@2"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/break_infinity.js@2/dist/break_infinity.js"></script>
     <div class="tab">
         <button id="edtabbutton"class="tablinks" onclick="openTab(event, 'EDTab')">ED</button>
         <button id="Infinitytabb"class="tablinks" onclick="openTab(event, 'Infinitytab')">Infinity</button>
@@ -23,9 +24,9 @@
     </div>
     <h1 id="IP">InfinityPoints:</h1>
     <h1 id="parina">Pärinä:</h1>
-    
+
     <div id="EDTab" class="tabcontent">
-        
+        <button id="bootout" onclick="bootout()">AVAA WILMA</button>
         <p id="ppe"> sus</p>
         <div onclick="lipitysosto('a')" class="container">
             <img id="lipitys" src="lipitystys.png">
@@ -72,6 +73,8 @@
             
         </select>
         <button id="export" class="Settingss" onclick="export1()">Kopioi Save</button>
+        <!--<button id="import" class="Settingss" onclick="import1()">Import Save</button>-->
+        <button id="sounds" class="Settingss" onclick="soundstogl()">sounds: On</button> 
 
     
     </div>

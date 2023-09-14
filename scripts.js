@@ -1,5 +1,4 @@
 var player = {
-    
     parinaamt: new Decimal(0),
     lipitysamt: new Decimal(1),
     edtier: new Decimal(1),
@@ -10,7 +9,9 @@ var player = {
     edmulti: 0,
     autoclicker: 0,
     comsed: "Auto",
-    edskinselected: "Auto"
+    edskinselected: "Auto",
+    sounds: true,
+    music: true
 }
 var autoc = new Decimal(0);
 var theme = "Auto";
@@ -32,6 +33,8 @@ function RESET() {
     player.infinitypoints = new Decimal(0);
     player.edmulti = 0;
     player.autoclicker = 0;
+    player.sounds = true;
+    player.music = true;
     savegame();
 }
 var acpc = 1000;
@@ -41,6 +44,7 @@ var autobuyertab = document.getElementById("Autobuyertabb");
 var mxa2 = document.getElementById("MaxAll1");
 var infupg = document.getElementById("infinityUP1");
 var IP1 = document.getElementById("IP");
+var audio = new Audio('sip.wav');
 var ppee = document.getElementById("ppe");
 var inftext = document.getElementById("maksuifn");
 var lippitekst = document.getElementById("maksu");
@@ -49,6 +53,11 @@ var parinatxt = document.getElementById("parina");
 lippitekst.textContent = "Päivitä lipitys taitoja <br> Maksaa: " + player.lipitysmaksu;
 function clickEventimg() {
     tubwer = new Decimal(1);
+    if (player.sounds == true)
+    {
+        audio.play();
+    }
+    
     
 
     if (player.edmulti == 1 && player.infinitypoints.gte(1)) {
@@ -126,7 +135,7 @@ function infinityED() {
             
             tubwer = player.parinaamt.divide(10000 * player.parinaamt.dividedBy(player.parinaamt.dividedBy(100)));
             tubwer = tubwer.round();
-            
+            tubwer = tubwer.add(1);
             console.log(tubwer);
             player.infinitypoints = player.infinitypoints.add(tubwer);
             IP1.textContent = "LoputtomiaPärinöitä: " + player.infinitypoints;
@@ -147,12 +156,29 @@ function sav() {
 function toggleparin() {
     parinaut1 = !parinaut1;
 }
+function soundstogl()
+{
+    player.sounds = !player.sounds;
+    var musci = document.getElementById("sounds");
+    if (player.sounds) {
+        musci.innerHTML = "Sounds: On";
+    }
+    else {
+        musci.innerHTML = "Sounds: Off";
+    }
+    
+}
 function toggleautcli() {
     autoclire = !autoclire;
 }
 let output = document.getElementById('exportOutput');
 let parent = output.parentElement;
 parent.style.display = "none";
+
+function bootout()
+{
+    window.open("https://helsinki.inschool.fi/");
+}
 function updateinterface() {
     if (player.autoclicker == 1 ) {
         autobuyertab.style.visibility = "";
@@ -160,7 +186,7 @@ function updateinterface() {
     else {
         autobuyertab.style.visibility = "hidden";
     }
-    parinatxt.textContent = "Pärinä: " + player.parinaamt.round();
+    parinatxt.textContent = "Pärinä: " + player.parinaamt;
 
     IP1.textContent = "LoputtomiaPärinöitä: " + player.infinitypoints;
     lippitekst.textContent = "Päivitä lipitystaitoja" + " Maksaa: " + player.lipitysmaksu;
@@ -193,8 +219,22 @@ function updateinterface() {
     }
 
     
+
+    if (player.autoclicker == 1)
+    {
+        $("#InfinityUP3").addClass("active");
+    }
+    if (player.edtier >= 3)
+    {
+        $("#InfinityUP2").addClass("active");
+    }
+    if (player.edmulti >= 1)
+    {
+        $("#InfinityUP1").addClass("active");
+    }
     setTimeout(updateinterface,50);
-    
+
+
 }
 $(document).ready(function() {
     $("select.edskinsele").change(function() {
@@ -265,17 +305,29 @@ function purhaceinfupgrade(evt, InfUpgrade, price) {
     var i, infupgrades;
     if (player.infinitypoints >= price) {
         if (price == 5) {
+            if (player.edmulti == 0)
+            {
+                player.infinitypoints = player.infinitypoints.minus(price);
+            }
             player.edmulti = 1;
         }
         if (InfUpgrade == "InfinityUP3") {
+            if (player.autoclicker == 0)
+            {
+                player.infinitypoints = player.infinitypoints.minus(price);
+            }
             player.autoclicker = 1;
         }
         if (InfUpgrade == "InfinityUP2") {
+            if (player.edtier <= 2)
+            {
+                player.infinitypoints = player.infinitypoints.minus(price);
+            }
             player.edtier = new Decimal(3);
         }
         document.getElementById(InfUpgrade).style.display = "block";
         evt.currentTarget.className += " active";
-        player.infinitypoints = player.infinitypoints.minus(price);
+        
     }
     
 }
@@ -321,6 +373,30 @@ function export1() {
     output.blur();
 
 }
+function import1() {
+    input = document.getElementById('importInput');
+    parent = input.parentElement;
+    parent.style.display = "";
+    console.log(input.value);
+
+    input.onblur = function() {
+        parent.style.display = "none";
+    }
+
+    input.focus();
+    input.select();
+    try {
+        var successful = document.execCommand('paste');
+        var msg = successful ? 'successful' : 'unsuccessful';
+        console.log('Fallback: importing was ' + msg);
+      } catch (err) {
+        console.error('Fallback: Oops, unable to copy', err);
+      }
+    input.blur();
+    player = input.value;
+}
+
+
 function lipitysosto(au) {
     if (player.maxall && au != "player.autoclicker") {
         buyMaxlip();
