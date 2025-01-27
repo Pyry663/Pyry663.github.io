@@ -214,8 +214,16 @@ function updateinterface() {
     if (theme == "auto")
     {
         document.body.style.backgroundColor = "aquamarine";
+        document.body.style.backgroundImage = "";
     } else if (theme == "dark") {
         document.body.style.backgroundColor = "black";
+        document.body.style.backgroundImage = "";
+    } else if (theme == "????") {
+        document.body.style.backgroundColor = "pink";
+        document.body.style.backgroundImage = "url('image.png')";
+    } else if (theme == "Tropical") {
+        document.body.style.backgroundColor = "orange";
+        document.body.style.backgroundImage = "";
     }
 
     
